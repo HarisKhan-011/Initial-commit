@@ -1,0 +1,165 @@
+/* Container for the entire section */
+.container3 {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+/* Container for the blog items */
+.items3 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Section header */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.section-header span {
+  font-size: 1.5rem;
+  color: #7d7d7d;
+}
+
+.section-header h1 {
+  margin: 0 20px;
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Container to hold card sections in a row */
+.card-section-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Wrap if the screen size is smaller */
+  gap: 15px;
+}
+
+/* Card section styling */
+.card-section3 {
+  border-radius: 10px;
+  overflow: hidden;
+  width: calc(33.33% - 20px); /* Three cards per row */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Image inside each card */
+.card-section3 .img {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-section3 img {
+  width: 100%;
+  aspect-ratio: 3 / 2; /* Maintain a consistent aspect ratio */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.card-section3:hover img {
+  transform: scale(1.1);
+}
+
+/* Blog category tags */
+.blog-category-names {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #9b59b6;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.purple {
+  color: white;
+  background-color: #9b59b6;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Text section inside each card */
+.text-section3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  text-align: center;
+ width: 300px;
+ margin-top: 40px;
+}
+
+.text-section3 h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+ 
+ 
+}
+
+.text-section3 h2:hover {
+  color: #9b59b6;
+}
+
+.text-section3 p {
+  color: #7d7d7d;
+  font-size: 0.875rem;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .card-section3 {
+    width: calc(50% - 10px); /* Two cards per row */
+  }
+
+  .text-section3 h2 {
+    font-size: 1rem;
+  }
+
+  .text-section3 p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .card-section3 {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .text-section3 h2 {
+    font-size: 0.875rem;
+  }
+
+  .text-section3 p {
+    font-size: 0.75rem;
+  }
+}
