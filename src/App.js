@@ -9,7 +9,7 @@ import { CartProvider } from './CardContext/CardContext'; // Ensure correct path
 // import Cardpage from './Pages/Cardpage';
 
 function App() {
-  const [show,setshow]=useState(false)
+  // const [show,setshow]=useState(false)
   return (
 
     <CartProvider >
