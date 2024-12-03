@@ -6,12 +6,12 @@ import { Approutes } from './Routes/Approutes';
 import Navbar from './Components/Navbar';
 import { Footer } from './Components/Footer';
 import { CartProvider } from './CardContext/CardContext'; // Ensure correct path
-import Cardpage from './Pages/Cardpage';
+// import Cardpage from './Pages/Cardpage';
 
 function App() {
   const [show,setshow]=useState(false)
   return (
-    
+
     <CartProvider >
       <BrowserRouter>
         <Navbar  />
