@@ -9,12 +9,12 @@ import { CartProvider } from './CardContext/CardContext'; // Ensure correct path
 // import Cardpage from './Pages/Cardpage';
 
 function App() {
-  // const [show,setshow]=useState(false)
+  const [show,setShow]=useState(false)
   return (
 
     <CartProvider >
       <BrowserRouter>
-        <Navbar  />
+      <Navbar show={show} setshow={setShow} />
         <Approutes />
         <Footer />
        

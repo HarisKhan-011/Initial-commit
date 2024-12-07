@@ -1,37 +1,22 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faSearch, faAngleDown,  faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faSearch, faAngleDown, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import "../Styles/Navbar.css";
 import { Badge, Button } from 'react-bootstrap';
-
-
 import Menu from '../Assets/menu.png';
-
 import { CartContext } from '../CardContext/CardContext';
 
-const Navbar = ({show,setshow}) => {
-const {count,handleincrease,handledecrease}=useContext(CartContext)
-
+const Navbar = ({ show, setShow }) => {
+  const { count } = useContext(CartContext);
   const [showPagesDropdown, setShowPagesDropdown] = useState(false);
   const [showBlogsDropdown, setShowBlogsDropdown] = useState(false);
-  const [showinput,setshowinput] =useState(false)
-  const handleinput=()=>{
-    setshowinput(true)
-  }
-  const [toggle, settoggle] = useState(false);
+  const [showInput, setShowInput] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
-  const handletoggle = () => {
-    settoggle(!toggle);
-  };
+  const handleToggle = () => setToggle(!toggle);
+  const handleInput = () => setShowInput(true);
 
-  const handleMouseEnterPages = () => setShowPagesDropdown(true);
-  const handleMouseLeavePages = () => setShowPagesDropdown(false);
-
-  const handleMouseEnterBlogs = () => setShowBlogsDropdown(true);
-  const handleMouseLeaveBlogs = () => setShowBlogsDropdown(false);
-
-  
   return (
     <>
       <nav>
@@ -40,58 +25,43 @@ const {count,handleincrease,handledecrease}=useContext(CartContext)
             <div className="left">
               <h1>E-Commerce</h1>
             </div>
-            
-            <button className="Toggle" onClick={handletoggle}>
+
+            <button className="Toggle" onClick={handleToggle}>
               <img src={Menu} alt="menu" />
             </button>
 
             <div className={`mid ${toggle ? "show" : "hide"}`}>
-              <ul className="ul" 
-  onMouseEnter={handleMouseEnterPages} 
-  onMouseLeave={handleMouseLeavePages} >
+              <ul className="ul">
                 <li className="li">
-                  <Link to="/home">Home </Link>
+                  <Link to="/home">Home</Link>
                 </li>
-                
-              
+                <li className="li">
+                  <Link to="/shop">Shop</Link>
+                </li>
                 <li
-  className="li" 
-//  
->
-  <li className="li"><a href="/shop">Shop</a> </li> {/* Dropdown trigger */}
-  
- 
-</li>
-
-
-
-
-                
-                {/* <li className="li">
-                  <a href="#collection">Collection</a>
-                </li> */}
-
-                <li 
-                  className="li" 
-                  
+                  className="li"
+                  onMouseEnter={() => setShowPagesDropdown(true)}
+                  onMouseLeave={() => setShowPagesDropdown(false)}
                 >
-                  <Link to="/electronics">Electronics <FontAwesomeIcon icon={faAngleDown} className="icon" /></Link>
+                  <Link to="/electronics">
+                    Electronics <FontAwesomeIcon icon={faAngleDown} className="icon" />
+                  </Link>
                   {showPagesDropdown && (
-                    <ul className="submenu ">
+                    <ul className="submenu">
                       <li><Link to="/mobile">Mobiles</Link></li>
                       <li><Link to="/accessories">Computer & Accessories</Link></li>
                       <li><Link to="/watch">Smart Watch Accessories</Link></li>
-                     
                     </ul>
                   )}
                 </li>
-                
-                <li 
-                  className="li" 
-                  onMouseEnter={handleMouseEnterBlogs} 
-                  onMouseLeave={handleMouseLeaveBlogs}
+                <li
+                  className="li"
+                  onMouseEnter={() => setShowBlogsDropdown(true)}
+                  onMouseLeave={() => setShowBlogsDropdown(false)}
                 >
-                  <Link to="/Blog">Blogs <FontAwesomeIcon icon={faAngleDown} className="icon" /></Link>
+                  <Link to="/blog">
+                    Blogs <FontAwesomeIcon icon={faAngleDown} className="icon" />
+                  </Link>
                   {showBlogsDropdown && (
                     <ul className="submenu">
                       <li><Link to="/blog1">A guide to latest trends</Link></li>
@@ -100,36 +70,44 @@ const {count,handleincrease,handledecrease}=useContext(CartContext)
                     </ul>
                   )}
                 </li>
-                
-                <li className='li'><Link to="/contact">Contact Us</Link></li>
+                <li className="li"><Link to="/contact">Contact Us</Link></li>
               </ul>
             </div>
 
             <div className="right">
-            <ul className="icon-list">
-              <ul className="icon-list1">
+              <ul className="icon-list">
+                <li className="badge">
+                  {!showInput && (
+                    <FontAwesomeIcon
+                      onClick={handleInput}
+                      icon={faSearch}
+                      className="icon"
+                    />
+                  )}
+                  {showInput && (
+                    <input
+                      type="text"
+                      name="input"
+                      className="search-input"
+                      placeholder="Search..."
+                    />
+                  )}
+                </li>
+                {/* <li className="badge" onClick={() => setshow(true)}>
+                  <FontAwesomeIcon icon={faCartShopping} className="icon" />
+                  <Badge className="ms-2 badge-position">{count}</Badge>
+                </li> */}
+                <li className='badge' onClick={() => setShow(true)}>
+  <FontAwesomeIcon icon={faCartShopping} className="icon" />
+</li>
 
-              <li className="badge">
-        {!showinput && (
-          <FontAwesomeIcon 
-            onClick={handleinput} 
-            icon={faSearch} 
-            className="icon" 
-          />
-        )}
-        {showinput && (
-          <input 
-            type="text" 
-            name="input" 
-            className="search-input" 
-            placeholder="Search..." 
-          />
-        )}
-      </li>
-      </ul>
-                <li className='badge' onClick={()=>{setshow(true)}}><a href="/cardpage"> <FontAwesomeIcon icon={faCartShopping} className="icon" /><Badge  className="ms-2 badge-position">{count}</Badge></a></li>
-                <li className='badge'><Link  to="/wishlist"><FontAwesomeIcon icon={faHeart} className="icon" /><Badge  className="ms-2 badge-position">0</Badge></Link></li>
-                <Button variant="primary" href='/signin'>Sign In</Button>
+                <li className="badge">
+                  <Link to="/wishlist">
+                    <FontAwesomeIcon icon={faHeart} className="icon" />
+                    <Badge className="ms-2 badge-position">0</Badge>
+                  </Link>
+                </li>
+                <Button variant="primary" href="/signin">Sign In</Button>
               </ul>
             </div>
           </div>

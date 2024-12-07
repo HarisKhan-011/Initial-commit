@@ -81,19 +81,18 @@ const Cardpage = () => {
             <p>
              
       Size:
-      {['S', 'M', 'L', 'XL'].map((size) => (
-        <span
-          key={size}
-          className="size"
-          onClick={() => handleSizeClick(size)}
-          style={{
-            color: selectedSize === size ? 'blue' : '#333',
-            borderColor: selectedSize === size ? 'blue' : '#ddd',
-          }}
-        >
-          {size}
-        </span>
-      ))}
+      <div className="size-selector">
+  <h3>Select Size:</h3>
+  {['S', 'M', 'L', 'XL'].map((size) => (
+    <span
+      key={size}
+      className={`size-option ${selectedSize === size ? 'selected' : ''}`}
+      onClick={() => handleSizeClick(size)}
+    >
+      {size}
+    </span>
+  ))}
+</div>
     </p>
             <div className="flex1">
               <button onClick={handledecrease} className="button-size1">
