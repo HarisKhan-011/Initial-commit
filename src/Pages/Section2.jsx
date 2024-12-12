@@ -15,6 +15,7 @@ import { motion } from 'framer-motion'; // Corrected import
 const Section2 = () => {
   const navigate = useNavigate();
   const { addToCart, count, handleincrease, handledecrease, addToWishlist } = useContext(CartContext);
+  const [isCartUpdated, setIsCartUpdated] = useState(false);
 
   const [hoveredProduct, setHoveredProduct] = useState(false);
 
@@ -25,6 +26,12 @@ const Section2 = () => {
   const handleHoverEnd = () => {
     setHoveredProduct(false);
   };
+
+  const handleaddcart=(product)=>{
+    addToCart(product)
+    handleincrease()
+    setIsCartUpdated(true)
+  }
 
   const products = [
     { id: 1, image: shirt1, title: 'Stylish Shirt 1', price: 'Rs 460', oldPrice: 'Rs 490' },
@@ -71,11 +78,7 @@ const Section2 = () => {
                   </ul>
                   <div className="add-to-cart">
                     <motion.button
-                      onClick={() => {
-                        addToCart(product);
-                        handleincrease();
-                        navigate('/cardpage'); // Programmatic navigation
-                      }}
+ onClick={() => handleaddcart(product)}
                       className="button-cart"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}

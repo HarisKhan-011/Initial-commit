@@ -17,12 +17,12 @@ import Blog from '../Pages/Blog';
 import Cardpage from '../Pages/Cardpage';
 import Section2 from '../Pages/Section2';
 import WishlistPage from '../Pages/Wishlist';
-import { CartContext } from '../CardContext/CardContext';
 
 export const Approutes = () => {
-  const {addToCart,cart,setcart}=useContext(CartContext)
+
   return (
     <Routes>
+        <Route path="/" element={<HomePage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/section1" element={<Section1 />} />
       <Route path="/section2" element={<Section2  />} />

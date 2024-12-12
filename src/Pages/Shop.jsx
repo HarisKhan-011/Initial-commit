@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import '../Styles/Shop.css';
 import Fashion from '../Assets/Fashion.webp';
 import Footwear from '../Assets/Footwear.webp';
@@ -29,14 +30,23 @@ const Shop = () => {
         </div>
         <div className="shop-links">
           {Shopslink.map((shop) => (
-            <a href={shop.link} className="shop-card" key={shop.id}>
+            <motion.a
+              href={shop.link}
+              className="shop-card"
+              key={shop.id}
+              // Add fade-in animation and scale effect on hover
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5}}
+              whileHover={{ scale: 1.05 }} // Scale up on hover
+            >
               <div className="shop-img">
                 <img src={shop.image} alt={shop.title} />
               </div>
               <div className="shop-text">
                 <h6>{shop.title}</h6>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>

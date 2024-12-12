@@ -8,7 +8,7 @@ import Menu from '../Assets/menu.png';
 import { CartContext } from '../CardContext/CardContext';
 
 const Navbar = ({ show, setShow }) => {
-  const { count } = useContext(CartContext);
+  const { count,cart } = useContext(CartContext);
   const [showPagesDropdown, setShowPagesDropdown] = useState(false);
   const [showBlogsDropdown, setShowBlogsDropdown] = useState(false);
   const [showInput, setShowInput] = useState(false);
@@ -97,16 +97,19 @@ const Navbar = ({ show, setShow }) => {
                   <FontAwesomeIcon icon={faCartShopping} className="icon" />
                   <Badge className="ms-2 badge-position">{count}</Badge>
                 </li> */}
-                <li className='badge' onClick={() => setShow(true)}>
-  <FontAwesomeIcon icon={faCartShopping} className="icon" />
+                <li className='badge' >
+                  <Link to="/cardpage">
+  <FontAwesomeIcon  icon={faCartShopping} className="icon badge-updated" />
+  <Badge className="ms-2 badge-position">{cart.length}</Badge>
+  </Link>
 </li>
 
-                <li className="badge">
+                {/* <li className="badge">
                   <Link to="/wishlist">
                     <FontAwesomeIcon icon={faHeart} className="icon" />
                     <Badge className="ms-2 badge-position">0</Badge>
                   </Link>
-                </li>
+                </li> */}
                 <Button variant="primary" href="/signin">Sign In</Button>
               </ul>
             </div>

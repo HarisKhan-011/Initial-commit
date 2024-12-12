@@ -18,10 +18,10 @@ import image11 from '../Assets/image11.webp'
 import image12 from '../Assets/image12.webp'
 import image13 from '../Assets/image13.jpeg'
 import { CartContext } from '../CardContext/CardContext';
-import { Link } from 'react-router-dom';
+
 
 export const Electronics = () => {
-  const { addToCart,count,handleincrease,handledecrease ,addToWishlist} = useContext(CartContext);
+  const { addToCart,handleincrease } = useContext(CartContext);
 
   const [hoverproduct,setHoveredProduct]=useState(false)
 
@@ -118,7 +118,7 @@ setHoveredProduct(id)
               <button onClick={()=>{
                 addToCart(electronic)
                 handleincrease()
-              }} className="button-cart"> <Link  to="/cardpage">Add to Cart</Link></button>
+              }} className="button-cart"> Add to cart</button>
               </div>
 
               </>

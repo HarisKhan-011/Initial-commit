@@ -1,4 +1,4 @@
-import React, { useState, createContext,useContext, useReducer } from 'react';
+import React, { useState, createContext,useContext} from 'react';
 
 // Create CartContext
 export const CartContext = createContext();
@@ -30,7 +30,6 @@ const removeFromWishlist = (id) => {
 };
 const handleincrease=()=>{
   setcount(count+1)
- 
 }
 
 const handledecrease=()=>{
@@ -40,16 +39,12 @@ const handledecrease=()=>{
 
 
 const addToCart = (item) => {
-  let ispresent=false;
-  cart.forEach((product)=>{
-if(item.id===product.id)
-ispresent=true
-
-  })
-  if(ispresent)
-    return
-    setCart([...cart,item])
+  if (cart.some((product) => product.id === item.id)) {
+    return;  // If item is already in the cart, do nothing
+  }
+  setCart([...cart, item]);  // Add item to the cart
 };
+
 
 
   // Remove an item from the cart

@@ -97,7 +97,7 @@ const Mobiles = () => {
               <button onClick={()=>{
                 addToCart(electronic)
                 handleincrease()
-              }} className="button-cart"> <Link  to="/cardpage">Add to Cart</Link></button>
+              }} className="button-cart"> Add to cart</button>
               </div>
             </>
         )}

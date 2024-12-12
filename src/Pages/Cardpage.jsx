@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../Styles/Cardpage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { colors, styled } from '@mui/material';
+
 
 const Cardpage = () => {
   const [selectedSize, setSelectedSize] = useState(null);
@@ -78,22 +78,7 @@ const Cardpage = () => {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text ever since the
               1500s.
             </p>
-            <p>
-             
-      Size:
-      <div className="size-selector">
-  <h3>Select Size:</h3>
-  {['S', 'M', 'L', 'XL'].map((size) => (
-    <span
-      key={size}
-      className={`size-option ${selectedSize === size ? 'selected' : ''}`}
-      onClick={() => handleSizeClick(size)}
-    >
-      {size}
-    </span>
-  ))}
-</div>
-    </p>
+            
             <div className="flex1">
               <button onClick={handledecrease} className="button-size1">
                 -

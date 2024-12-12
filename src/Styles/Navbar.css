@@ -157,6 +157,9 @@ list-style: none;
   font-size: 0.75rem; /* Adjust size of the badge text */
   border-radius: 50%; /* Circular badge */
   padding: 0.25rem; /* Size of the badge */
+  background-color: #4caf50; /* Example green color */
+  color: white;
+  transition: background-color 0.3s ease;
 }
 .search-input {
   width: 150px;
@@ -171,6 +174,7 @@ list-style: none;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
 .right .icon:hover {
   color: #ff9900;
 }
